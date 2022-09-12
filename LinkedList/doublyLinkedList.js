@@ -1,13 +1,16 @@
 class Node {
   constructor(value) {
-    (this.value = value), (this.next = null);
+    this.value = value;
+    this.next = null;
+    this.prev = null;
   }
 }
 
-class SinglyLinkedList {
+class DoublyLinkedList {
   constructor(value) {
     this.head = {
       value: value,
+      prev: null,
       next: null,
     };
     this.tail = this.head;
@@ -17,12 +20,14 @@ class SinglyLinkedList {
   append(value) {
     const newNode = new Node(value);
     this.tail.next = newNode;
+    newNode.prev = this.tail;
     this.tail = newNode;
     this.length++;
   }
 
   prepend(value) {
     const newNode = new Node(value);
+    this.head.prev = newNode;
     newNode.next = this.head;
     this.head = newNode;
     this.length++;
@@ -36,12 +41,13 @@ class SinglyLinkedList {
       this.append(value);
       return this.printList();
     }
-
     const newNode = new Node(value);
     const previousNode = this.listTraversal(index - 1);
     const nextNode = this.listTraversal(index);
     newNode.next = nextNode;
+    newNode.prev = previousNode;
     previousNode.next = newNode;
+    nextNode.prev = newNode;
     this.length++;
   }
 
@@ -60,6 +66,7 @@ class SinglyLinkedList {
     const previousNode = this.listTraversal(index - 1);
     const nextNode = this.listTraversal(index + 1);
     previousNode.next = nextNode;
+    nextNode.prev = previousNode;
     this.length--;
     return item;
   }
@@ -85,13 +92,13 @@ class SinglyLinkedList {
   }
 }
 
-myLinkedList = new SinglyLinkedList(10);
-myLinkedList.append(5);
-myLinkedList.append(16);
-myLinkedList.prepend(1);
-myLinkedList.insert(0, 9);
-myLinkedList.insert(20, 100);
-myLinkedList.insert(2, 99);
-myLinkedList.remove(2);
-// console.log(myLinkedList);
-console.log(myLinkedList.printList());
+myDoublyLinkedList = new DoublyLinkedList(10);
+myDoublyLinkedList.append(5);
+myDoublyLinkedList.append(16);
+myDoublyLinkedList.prepend(1);
+myDoublyLinkedList.insert(0, 9);
+myDoublyLinkedList.insert(20, 100);
+myDoublyLinkedList.insert(2, 99);
+myDoublyLinkedList.remove(2);
+console.log(myDoublyLinkedList);
+console.log(myDoublyLinkedList.printList());
