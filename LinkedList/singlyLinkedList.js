@@ -6,10 +6,7 @@ class Node {
 
 class SinglyLinkedList {
   constructor(value) {
-    this.head = {
-      value: value,
-      next: null,
-    };
+    this.head = new Node(value);
     this.tail = this.head;
     this.length = 1;
   }
