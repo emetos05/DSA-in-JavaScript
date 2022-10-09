@@ -13,4 +13,4 @@ function bubbleSort(array) {
 }
 
 bubbleSort(numbers);
-console.log(numbers);
+// console.log(numbers);
