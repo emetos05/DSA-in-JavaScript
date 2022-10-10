@@ -221,7 +221,7 @@ tree.insert(1);
 console.log("DFSInOrder", tree.depthFirstSearchInOrder());
 console.log("DFSPreOrder", tree.depthFirstSearchPreOrder());
 console.log("DFSPostOrder", tree.depthFirstSearchPostOrder());
-console.log("BFS", tree.breadthFirstSearch());
+// console.log("BFS", tree.breadthFirstSearch());
 // console.log("BFS", tree.breadthFirstSearchRecursive([tree.root], []));
 
 //     9
