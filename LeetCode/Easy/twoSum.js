@@ -1,3 +1,4 @@
+// Leetcode Q. 1
 const twoSum = function (nums, target) {
   // Using Object (Hash table)
   let store = {};
