@@ -1,4 +1,5 @@
 // Leetcode 53
+// Dynamic Programming
 const maxSubArray = function (nums) {
   let currentMax = nums[0];
   let maximum = nums[0];
